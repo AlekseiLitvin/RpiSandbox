@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: ./changeset/changelog-initial.sql
+      relativeToChangelogFile: true
+  - include:
+      file: ./changeset/changelog-1.sql
+      relativeToChangelogFile: true
