@@ -11,7 +11,23 @@ services:
       - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
+  sonarqube:
+    image: docker.io/bitnami/sonarqube
+    ports:
+      - '9000:9000'
+    volumes:
+      - sonarqube_data:/bitnami/sonarqube
+    depends_on:
+      - postgresql
+    environment:
+      - SONARQUBE_DATABASE_HOST=rpi.local
+      - SONARQUBE_DATABASE_PORT_NUMBER=5432
+      - SONARQUBE_DATABASE_USER=root
+      - SONARQUBE_DATABASE_PASSWORD=root
+      - SONARQUBE_DATABASE_NAME=vardb
 
 volumes:
   postgres_data:
+    driver: local
+  sonarqube_data:
     driver: local
