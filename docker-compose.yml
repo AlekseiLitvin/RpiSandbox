@@ -17,8 +17,6 @@ services:
       - '9000:9000'
     volumes:
       - sonarqube_data:/bitnami/sonarqube
-    depends_on:
-      - postgresql
     environment:
       - SONARQUBE_DATABASE_HOST=rpi.local
       - SONARQUBE_DATABASE_PORT_NUMBER=5432
